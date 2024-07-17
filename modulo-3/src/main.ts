@@ -32,13 +32,16 @@ interface Grupo {
 }
 
 let rockStyle= "🎸 Rock"
+let hardRockStyle= "🤘 Hard Rock"
+let popRockStyle= "🎵 Pop Rock"
+let classicStyle= "🎼 Clásica"
 let styling= "font-weight: 700; background-color: green"
 
 const grupoBeatles: Grupo = {
     nombre: "The Beatles",
     añoFundación: 1960,
     activo: true,
-    género: "🎵 Pop Rock"
+    género: popRockStyle
 }
 
 const grupoQueen: Grupo = {
@@ -52,14 +55,14 @@ const grupoACDC: Grupo = {
     nombre: "ACDC",
     añoFundación: 1973,
     activo: true,
-    género: "🤘 Hard Rock"
+    género: hardRockStyle
 }
 
 const grupoLudwig: Grupo = {
     nombre: "Ludwig",
     añoFundación: 1770,
     activo: true,
-    género: "🎼 Clásica"
+    género: classicStyle
 }
 
 const grupoRolling: Grupo = {
