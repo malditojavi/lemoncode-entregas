@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <h1 id="header"></h1>
+    <span>Tu puntuación hasta ahora: <div id="renderScore" onload="muestraPuntuacion()">0</div></span>
+    <span id="gameOver">Has perdido!</span>
+    <span id="plantaoMessage"></span>
+    <img id="renderCarta" src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg" style="display: block;">
+    <button id="dameCartaButton">Dame carta</button>
+    <button id="resetButton">Reset button</button>
+    <button id="mePlantoButton">Me Planto Button</button>
 </body>
 </html>
