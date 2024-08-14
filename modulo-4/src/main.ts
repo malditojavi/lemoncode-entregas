@@ -1,9 +1,5 @@
-import "./style.css";
-
-//let numeroTurno = document.getElementsByClassName("numero-turno")
-
 let currentValueCounter:number = 1
-document.getElementById("currentValueCounter")!.innerHTML = currentValueCounter.toString()
+document.getElementById("currentValueCounter")!.innerHTML = currentValueCounter.toString().padStart(2, '0')
 
 let nextButton = document.getElementById("nextButton")
 let previousButton = document.getElementById("previousButton")
@@ -21,19 +17,19 @@ if (resetButton != undefined && nextButton != null){
 
 function renderNextCount() {
     currentValueCounter += 1
-    document.getElementById("currentValueCounter").innerHTML = currentValueCounter.toString()
+    document.getElementById("currentValueCounter").innerHTML = currentValueCounter.toString().padStart(2, '0')
     return currentValueCounter
 }
 
 function renderPreviousCount() {
     currentValueCounter -= 1
-    document.getElementById("currentValueCounter").innerHTML = currentValueCounter.toString()
+    document.getElementById("currentValueCounter").innerHTML = currentValueCounter.toString().padStart(2, '0')
     return currentValueCounter
 }
 
 function resetCount() {
     currentValueCounter = 0
-    document.getElementById("currentValueCounter").innerHTML = currentValueCounter.toString()
+    document.getElementById("currentValueCounter").innerHTML = currentValueCounter.toString().padStart(2, '0')
     return currentValueCounter
 }
 
@@ -44,7 +40,13 @@ skipNumber.addEventListener('input', monitorSkip)
 
 function monitorSkip() {
     document.getElementById("currentValueCounter").innerHTML = skipNumber.value
+    currentValueCounter = parseInt(skipNumber.value)
 }
 
+// implement padder
 
+// to do
+/*
+* enable strict and fix things
+*/
 
