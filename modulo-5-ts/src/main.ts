@@ -3,7 +3,7 @@
 // OK show messages depending how close you finish the match
 // OK keep current count 
 // OK block the button when the match is finished + end the match based on the current count
-// extra: add button to show which one would be the next card
+// TO DO: add button to show which one would be the next card
 
 // generate random number
 const generateRandomNumber = () => {
@@ -62,6 +62,12 @@ const assignCardUrlPath = () => {
     }
 }
 
+const callRenderScore = () => {
+    if (renderScore) {
+        renderScore.textContent = currentTotalCount.toString()
+    }
+}
+
 const calculateCurrentCardValueAndTotalCount = () => {
     currentCardValue = adaptRandomNumberForCard(generateRandomNumber())
     
@@ -72,9 +78,7 @@ const calculateCurrentCardValueAndTotalCount = () => {
     }
     
     currentTotalCount += currentCardValue
-    if (renderScore) {
-        renderScore.textContent = currentTotalCount.toString()
-    }
+    callRenderScore()
     checkIfMatchIsFinished();
 }
 
@@ -91,8 +95,15 @@ let resetMatchButton = document.getElementById('resetMatchButton')
 const resetAllValues = () => {
     currentCardValue = 0
     currentTotalCount = 0
-    if (renderScore) {
-        renderScore.textContent = currentTotalCount.toString()
+    callRenderScore()
+    if (finishMatchButton) {
+        (finishMatchButton as HTMLButtonElement).disabled = false
+    }
+    if (giveMeCardButton) {
+        (giveMeCardButton as HTMLButtonElement).disabled = false
+    }
+    if (finishMatchMessage) {
+        finishMatchMessage.textContent = ""
     }
     (renderCard as HTMLImageElement).src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg`  
 }
@@ -104,22 +115,26 @@ if (resetMatchButton) {
 // stop match
 
 let finishMatchButton = document.getElementById('finishMatchButton')
+let finishMatchMessage = document.getElementById('finishMatchMessage')
 
 const createFinishMatchMessage = () => {
-    if (currentTotalCount <= 5) {
-        console.log("Te podías haber arriesgado un poco más")
-    } else if (currentTotalCount >= 6 && currentTotalCount <= 7) {
-        console.log("Muy bien, pero podías arriesgarte un poquito más")
-    } else if (currentTotalCount === 7.5) {
-        console.log("Lo lograste!")
-    } else if (currentTotalCount > 7.5) {
-        console.log("Te pasaste!")
+    if (finishMatchMessage){
+        if (currentTotalCount <= 5) {
+            finishMatchMessage.textContent = "Te podías haber arriesgado un poco más"
+        } else if (currentTotalCount >= 6 && currentTotalCount <= 7) {
+            finishMatchMessage.textContent = "Muy bien, pero podías arriesgarte un poquito más"
+        } else if (currentTotalCount === 7.5) {
+            finishMatchMessage.textContent = "Lo lograste!"
+        } else if (currentTotalCount > 7.5) {
+            finishMatchMessage.textContent = "Te pasaste!"
+        }
     }
 }
 
 if (finishMatchButton) {
     finishMatchButton.addEventListener('click', () => {
         createFinishMatchMessage()
+        checkIfMatchIsFinished()
     })
 }
 
@@ -135,9 +150,12 @@ const renderCardUrlPath = () => {
 // block the button when the match is finished + end the match based on the current count
 
 const checkIfMatchIsFinished = () => {
-    if (currentTotalCount >= 7.5) {
+    if (currentTotalCount > 7.5) {
         if (finishMatchButton) {
             (finishMatchButton as HTMLButtonElement).disabled = true
+        }
+        if (giveMeCardButton) {
+            (giveMeCardButton as HTMLButtonElement).disabled = true
         }
         let finishMatchMessage = document.getElementById('finishMatchMessage')
         if (finishMatchMessage) {
