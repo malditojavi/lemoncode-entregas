@@ -80,16 +80,21 @@ const callRenderScore = () => {
     }
 }
 
+const calculateValueOfSpecialCards = () => {
+    if (currentCardValue >= 10) {
+        currentCardValue = 0.5
+    }
+}
+
 const calculateCurrentCardValueAndTotalCount = () => {
     currentCardValue = adaptRandomNumberForCard(generateRandomNumber())
     
     assignCardUrlPath()
     renderCardUrlPath()
-    if (currentCardValue >= 10) {
-        currentCardValue = 0.5
-    }
-    
+    calculateValueOfSpecialCards()
+
     currentTotalCount += currentCardValue
+
     callRenderScore()
     checkIfMatchIsFinished();
 }
@@ -104,19 +109,31 @@ if (giveMeCardButton) {
 // reset match
 let resetMatchButton = document.getElementById('resetMatchButton')
 
+const disableFinishMatchButton = () => {
+    if (finishMatchButton) {
+        (finishMatchButton as HTMLButtonElement).disabled = false
+    }
+}
+
+const disableGiveMeCardButton = () => {
+    if (giveMeCardButton) {
+        (giveMeCardButton as HTMLButtonElement).disabled = false
+    }
+}
+
+const resetFinishMatchMessage = () => {
+    if (finishMatchMessage) {
+        finishMatchMessage.textContent = ""
+    }
+}
+
 const resetAllValues = () => {
     currentCardValue = 0
     currentTotalCount = 0
     callRenderScore()
-    if (finishMatchButton) {
-        (finishMatchButton as HTMLButtonElement).disabled = false
-    }
-    if (giveMeCardButton) {
-        (giveMeCardButton as HTMLButtonElement).disabled = false
-    }
-    if (finishMatchMessage) {
-        finishMatchMessage.textContent = ""
-    }
+    disableFinishMatchButton()
+    disableGiveMeCardButton()
+    resetFinishMatchMessage()
     (renderCard as HTMLImageElement).src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg`  
 }
 if (resetMatchButton) {
