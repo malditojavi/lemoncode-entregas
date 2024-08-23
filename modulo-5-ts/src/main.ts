@@ -18,18 +18,6 @@ const adaptRandomNumberForCard = (generateRandomNumber: number): number => {
     return generateRandomNumber
 }
 
-// generate random number once 'give me card' button is clicked
-const giveMeCardButton = document.getElementById('giveMeCardButton');
-
-document.addEventListener('DOMContentLoaded', () => {
-    
-    if (giveMeCardButton instanceof HTMLButtonElement) {
-      giveMeCardButton.addEventListener('click', () => {
-        // console.log(adaptRandomNumberForCard(generateRandomNumber()))
-      })
-    }
-});
-
 // count the current card value and add it to the current count
 
 let getCurrentCardValue = () => {
@@ -113,9 +101,20 @@ const calculateCurrentCardValueAndTotalCount = () => {
     let currentTotalCount = getCurrentTotalCount();
     currentTotalCount += currentCardValue
 
+    // setCurrentTotalCount(currentTotalCount);
+
     callRenderScore()
     checkIfMatchIsFinished();
 }
+
+// const setCurrentTotalCount = (currentTotalCount: number) => {
+//    let currentCardValue = getCurrentCardValue();
+//    currentTotalCount += currentCardValue
+//}
+
+// generate random number once 'give me card' button is clicked
+const giveMeCardButton = document.getElementById('giveMeCardButton');
+
 
 if (giveMeCardButton instanceof HTMLButtonElement) {
     giveMeCardButton.addEventListener('click', () => {
@@ -145,12 +144,10 @@ const resetFinishMatchMessage = () => {
 }
 
 const resetAllValues = () => {
-    // REVIEW this
-    let currentCardValue = getCurrentCardValue();
-    currentCardValue = 0;
-    // REVIEW this
-    let currentTotalCount = getCurrentTotalCount();
-    currentTotalCount = 0;
+    
+    getCurrentCardValue();
+    getCurrentTotalCount();
+    
     callRenderScore();
     disableFinishMatchButton();
     disableGiveMeCardButton();
