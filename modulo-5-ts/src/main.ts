@@ -34,32 +34,44 @@ let currentCardValue = 0;
 let currentTotalCount = 0;
 let renderScore = document.getElementById('renderScore')
 
+const assignCardUrlPath = () => {   
 let cardUrlPath = ""
-
-const assignCardUrlPath = () => {    
-    if (currentCardValue === 1){
-        cardUrlPath = "/copas/1_as-copas.jpg"
-    } else if (currentCardValue === 2){
-        cardUrlPath = "/copas/2_dos-copas.jpg"
-    } else if (currentCardValue === 3){
-        cardUrlPath = "/copas/3_tres-copas.jpg"
-    } else if (currentCardValue === 4){
-        cardUrlPath = "/copas/4_cuatro-copas.jpg"
-    } else if (currentCardValue === 5){
-        cardUrlPath = "/copas/5_cinco-copas.jpg"
-    } else if (currentCardValue === 6){
-        cardUrlPath = "/copas/6_seis-copas.jpg"
-    } else if (currentCardValue === 7){
-        cardUrlPath = "/copas/7_siete-copas.jpg"
-    } else if (currentCardValue === 10){
-        cardUrlPath = "/copas/10_sota-copas.jpg"
-    } else if (currentCardValue === 11){
-        cardUrlPath = "/copas/11_caballo-copas.jpg"
-    } else if (currentCardValue === 12){
-        cardUrlPath = "/copas/12_rey-copas.jpg"
-    } else {
-        cardUrlPath = "back.jpg"
+    switch (currentCardValue) {
+        
+        case 1:
+            cardUrlPath = "/copas/1_as-copas.jpg"
+            break;
+        case 2:
+            cardUrlPath = "/copas/2_dos-copas.jpg"
+            break;
+        case 3:
+            cardUrlPath = "/copas/3_tres-copas.jpg"
+            break;
+        case 4:
+            cardUrlPath = "/copas/4_cuatro-copas.jpg"
+            break;
+        case 5:
+            cardUrlPath = "/copas/5_cinco-copas.jpg"
+            break;
+        case 6:
+            cardUrlPath = "/copas/6_seis-copas.jpg"
+            break;
+        case 7:
+            cardUrlPath = "/copas/7_siete-copas.jpg"
+            break;
+        case 10:
+            cardUrlPath = "/copas/10_sota-copas.jpg"
+            break;
+        case 11:
+            cardUrlPath = "/copas/11_caballo-copas.jpg"
+            break;
+        case 12:
+            cardUrlPath = "/copas/12_rey-copas.jpg"
+            break; 
+        default:
+            cardUrlPath = "back.jpg"
     }
+    return cardUrlPath
 }
 
 const callRenderScore = () => {
@@ -142,6 +154,7 @@ if (finishMatchButton) {
 
 let renderCard = document.getElementById('renderCard')
 const renderCardUrlPath = () => {   
+    let cardUrlPath = assignCardUrlPath();
     if (renderCard) { 
         (renderCard as HTMLImageElement).src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/${cardUrlPath}`  
     }
