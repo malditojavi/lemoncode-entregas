@@ -20,7 +20,9 @@ const adaptRandomNumberForCard = (generateRandomNumber: number): number => {
 
 // generate random number once 'give me card' button is clicked
 const giveMeCardButton = document.getElementById('giveMeCardButton');
+
 document.addEventListener('DOMContentLoaded', () => {
+    
     if (giveMeCardButton instanceof HTMLButtonElement) {
       giveMeCardButton.addEventListener('click', () => {
         // console.log(adaptRandomNumberForCard(generateRandomNumber()))
@@ -30,15 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // count the current card value and add it to the current count
 
-let currentCardValue = 0;
-let currentTotalCount = 0;
+let getCurrentCardValue = () => {
+    let currentCardValue = 0;
+    return currentCardValue
+}
 
-let renderScore = document.getElementById('renderScore')
+let getCurrentTotalCount = () => {
+    let currentTotalCount = 0;
+    return currentTotalCount
+}
+
+let getRenderScore = () => {
+    let renderScore = document.getElementById('renderScore')
+    return renderScore
+}
 
 const assignCardUrlPath = () => {   
-let cardUrlPath = ""
+    let cardUrlPath = ""
+    let currentCardValue = getCurrentCardValue();
     switch (currentCardValue) {
-        
         case 1:
             cardUrlPath = "/copas/1_as-copas.jpg"
             break;
@@ -76,24 +88,29 @@ let cardUrlPath = ""
 }
 
 const callRenderScore = () => {
+    let currentTotalCount = getCurrentTotalCount();
+    let renderScore = getRenderScore();
     if (renderScore instanceof HTMLElement) {
         renderScore.textContent = currentTotalCount.toString()
     }
 }
 
 const calculateValueOfSpecialCards = () => {
+    let currentCardValue = getCurrentCardValue();
     if (currentCardValue >= 10) {
         currentCardValue = 0.5
     }
 }
 
 const calculateCurrentCardValueAndTotalCount = () => {
+    let currentCardValue = getCurrentCardValue();
     currentCardValue = adaptRandomNumberForCard(generateRandomNumber())
     
     assignCardUrlPath()
     renderCardUrlPath()
     calculateValueOfSpecialCards()
 
+    let currentTotalCount = getCurrentTotalCount();
     currentTotalCount += currentCardValue
 
     callRenderScore()
@@ -128,7 +145,11 @@ const resetFinishMatchMessage = () => {
 }
 
 const resetAllValues = () => {
+    // REVIEW this
+    let currentCardValue = getCurrentCardValue();
     currentCardValue = 0;
+    // REVIEW this
+    let currentTotalCount = getCurrentTotalCount();
     currentTotalCount = 0;
     callRenderScore();
     disableFinishMatchButton();
@@ -149,6 +170,7 @@ let finishMatchButton = document.getElementById('finishMatchButton')
 let finishMatchMessage = document.getElementById('finishMatchMessage')
 
 const createFinishMatchMessage = () => {
+    let currentTotalCount = getCurrentTotalCount();
     if (finishMatchMessage instanceof HTMLElement) {
         if (currentTotalCount <= 5) {
             finishMatchMessage.textContent = "Te podías haber arriesgado un poco más"
@@ -182,6 +204,7 @@ const renderCardUrlPath = () => {
 // block the button when the match is finished + end the match based on the current count
 
 const checkIfMatchIsFinished = () => {
+    let currentTotalCount = getCurrentTotalCount();
     if (currentTotalCount > 7.5) {
         if (finishMatchButton instanceof HTMLButtonElement) {
             finishMatchButton.disabled = true
