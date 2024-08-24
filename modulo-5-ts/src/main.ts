@@ -18,27 +18,27 @@ const adaptRandomNumberForCard = (generateRandomNumber: number): number => {
     return generateRandomNumber
 }
 
+// generate random number once 'give me card' button is clicked
+const giveMeCardButton = document.getElementById('giveMeCardButton');
+document.addEventListener('DOMContentLoaded', () => {
+    if (giveMeCardButton instanceof HTMLButtonElement) {
+      giveMeCardButton.addEventListener('click', () => {
+        // console.log(adaptRandomNumberForCard(generateRandomNumber()))
+      })
+    }
+});
+
 // count the current card value and add it to the current count
 
-let getCurrentCardValue = () => {
-    let currentCardValue = 0;
-    return currentCardValue
-}
+let currentCardValue = 0;
+let currentTotalCount = 0;
 
-let getCurrentTotalCount = () => {
-    let currentTotalCount = 0;
-    return currentTotalCount
-}
-
-let getRenderScore = () => {
-    let renderScore = document.getElementById('renderScore')
-    return renderScore
-}
+let renderScore = document.getElementById('renderScore')
 
 const assignCardUrlPath = () => {   
-    let cardUrlPath = ""
-    let currentCardValue = getCurrentCardValue();
+let cardUrlPath = ""
     switch (currentCardValue) {
+        
         case 1:
             cardUrlPath = "/copas/1_as-copas.jpg"
             break;
@@ -76,45 +76,29 @@ const assignCardUrlPath = () => {
 }
 
 const callRenderScore = () => {
-    let currentTotalCount = getCurrentTotalCount();
-    let renderScore = getRenderScore();
     if (renderScore instanceof HTMLElement) {
         renderScore.textContent = currentTotalCount.toString()
     }
 }
 
 const calculateValueOfSpecialCards = () => {
-    let currentCardValue = getCurrentCardValue();
     if (currentCardValue >= 10) {
         currentCardValue = 0.5
     }
 }
 
 const calculateCurrentCardValueAndTotalCount = () => {
-    let currentCardValue = getCurrentCardValue();
     currentCardValue = adaptRandomNumberForCard(generateRandomNumber())
     
     assignCardUrlPath()
     renderCardUrlPath()
     calculateValueOfSpecialCards()
 
-    let currentTotalCount = getCurrentTotalCount();
     currentTotalCount += currentCardValue
-
-    // setCurrentTotalCount(currentTotalCount);
 
     callRenderScore()
     checkIfMatchIsFinished();
 }
-
-// const setCurrentTotalCount = (currentTotalCount: number) => {
-//    let currentCardValue = getCurrentCardValue();
-//    currentTotalCount += currentCardValue
-//}
-
-// generate random number once 'give me card' button is clicked
-const giveMeCardButton = document.getElementById('giveMeCardButton');
-
 
 if (giveMeCardButton instanceof HTMLButtonElement) {
     giveMeCardButton.addEventListener('click', () => {
@@ -144,15 +128,13 @@ const resetFinishMatchMessage = () => {
 }
 
 const resetAllValues = () => {
-    
-    getCurrentCardValue();
-    getCurrentTotalCount();
-    
+    currentCardValue = 0;
+    currentTotalCount = 0;
     callRenderScore();
     disableFinishMatchButton();
     disableGiveMeCardButton();
     resetFinishMatchMessage();
-    if (renderCard instanceof HTMLImageElement) { 
+    if (renderCard instanceof HTMLImageElement) { 
         renderCard.src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg`      
     }
 }
@@ -167,7 +149,6 @@ let finishMatchButton = document.getElementById('finishMatchButton')
 let finishMatchMessage = document.getElementById('finishMatchMessage')
 
 const createFinishMatchMessage = () => {
-    let currentTotalCount = getCurrentTotalCount();
     if (finishMatchMessage instanceof HTMLElement) {
         if (currentTotalCount <= 5) {
             finishMatchMessage.textContent = "Te podías haber arriesgado un poco más"
@@ -201,7 +182,6 @@ const renderCardUrlPath = () => {
 // block the button when the match is finished + end the match based on the current count
 
 const checkIfMatchIsFinished = () => {
-    let currentTotalCount = getCurrentTotalCount();
     if (currentTotalCount > 7.5) {
         if (finishMatchButton instanceof HTMLButtonElement) {
             finishMatchButton.disabled = true
@@ -215,5 +195,4 @@ const checkIfMatchIsFinished = () => {
         }
     }
 }
-
 
