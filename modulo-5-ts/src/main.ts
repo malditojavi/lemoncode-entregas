@@ -24,8 +24,6 @@ const adaptRandomNumberForCard = (generateRandomNumber: number): number => {
 let currentCardValue = 0;
 let currentTotalCount = 0;
 
-
-
 const assignCardUrlPath = () => {   
 let cardUrlPath = ""
     switch (currentCardValue) {
@@ -92,15 +90,24 @@ const calculateCurrentCardValueAndTotalCount = () => {
     checkIfMatchIsFinished();
 }
 
-// generate random number once 'give me card' button is clicked
-const giveMeCardButton = document.getElementById('giveMeCardButton');
+const pullGiveMeCardButtonElement = () => {
+    let giveMeCardButton = document.getElementById('giveMeCardButton')
+    return giveMeCardButton
+}
 
-if (giveMeCardButton instanceof HTMLButtonElement) {
-    
-    giveMeCardButton.addEventListener('click', () => {
-        calculateCurrentCardValueAndTotalCount()
-    })
-};
+// generate random number once 'give me card' button is clicked
+
+const renderGiveMeCardButton = () => {
+    const giveMeCardButton = pullGiveMeCardButtonElement();
+    if (giveMeCardButton instanceof HTMLButtonElement) {
+        
+        giveMeCardButton.addEventListener('click', () => {
+            calculateCurrentCardValueAndTotalCount()
+        })
+    };
+}
+
+renderGiveMeCardButton();
 
 // reset match
 
@@ -112,7 +119,7 @@ const disableFinishMatchButton = () => {
 }
 
 const disableGiveMeCardButton = (): void => {
-    
+    const giveMeCardButton = pullGiveMeCardButtonElement();
     if (giveMeCardButton instanceof HTMLButtonElement) {
         giveMeCardButton.disabled = false
     }
@@ -148,13 +155,21 @@ const pullMatchButtonVariable = () => {
     return resetMatchButton
 }
 
-// let resetMatchButton = document.getElementById('resetMatchButton')
-const resetMatchButton = pullMatchButtonVariable();
-if (resetMatchButton instanceof HTMLButtonElement) {
-    resetMatchButton.addEventListener('click', () => {
-        resetAllValues()
-    })
+const pullResetMatchButtonElement = () => {
+    let resetMatchButton = document.getElementById('resetMatchButton')
+    return resetMatchButton
 }
+
+const renderResetMatchButton = () => {
+    const resetMatchButton = pullResetMatchButtonElement();
+    if (resetMatchButton instanceof HTMLButtonElement) {
+        resetMatchButton.addEventListener('click', () => {
+            resetAllValues()
+        })
+    }
+}
+
+renderResetMatchButton();
 
 // stop match
 
@@ -184,13 +199,22 @@ const createFinishMatchMessage = () => {
     }
 }
 
-const finishMatchButton = pullFinishMatchButtonVariable();
-if (finishMatchButton instanceof HTMLButtonElement) {
-    finishMatchButton.addEventListener('click', () => {
-        createFinishMatchMessage()
-        checkIfMatchIsFinished()
-    })
+const pullFinishMatchButtonElement = () => {
+    let finishMatchButton = document.getElementById('finishMatchButton')
+    return finishMatchButton
 }
+
+const renderFinishMatchButton = () => {
+    const finishMatchButton = pullFinishMatchButtonElement();
+    if (finishMatchButton instanceof HTMLButtonElement) {
+        finishMatchButton.addEventListener('click', () => {
+            createFinishMatchMessage()
+            checkIfMatchIsFinished()
+        })
+    }
+}
+
+renderFinishMatchButton();
 
 // render card according to current card value
 
@@ -213,7 +237,8 @@ const renderCardUrlPath = () => {
 // block the button when the match is finished + end the match based on the current count
 
 const checkIfMatchIsFinished = () => {
-    
+    const giveMeCardButton = pullGiveMeCardButtonElement();
+    const finishMatchButton = pullFinishMatchButtonVariable();
     if (currentTotalCount > 7.5) {
         if (finishMatchButton instanceof HTMLButtonElement) {
             finishMatchButton.disabled = true
