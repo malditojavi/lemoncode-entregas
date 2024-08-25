@@ -76,7 +76,7 @@ const assignCardUrlPath = () => {
 }
 
 const callRenderScore = () => {
-    let currentTotalCount = intializeCurrentTotalCountAsZero();
+    
     let renderScore = document.getElementById('renderScore')
     if (renderScore instanceof HTMLElement) {
         renderScore.textContent = currentTotalCount.toString()
