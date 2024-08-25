@@ -5,6 +5,7 @@
 // OK block the button when the match is finished + end the match based on the current count
 // TO DO: add button to show which one would be the next card
 
+
 // generate random number
 const generateRandomNumber = () => {
     return Math.floor(Math.random() * 12) + 1;
@@ -18,22 +19,12 @@ const adaptRandomNumberForCard = (generateRandomNumber: number): number => {
     return generateRandomNumber
 }
 
-// generate random number once 'give me card' button is clicked
-const giveMeCardButton = document.getElementById('giveMeCardButton');
-document.addEventListener('DOMContentLoaded', () => {
-    if (giveMeCardButton instanceof HTMLButtonElement) {
-      giveMeCardButton.addEventListener('click', () => {
-        // console.log(adaptRandomNumberForCard(generateRandomNumber()))
-      })
-    }
-});
-
 // count the current card value and add it to the current count
 
 let currentCardValue = 0;
 let currentTotalCount = 0;
 
-let renderScore = document.getElementById('renderScore')
+
 
 const assignCardUrlPath = () => {   
 let cardUrlPath = ""
@@ -76,6 +67,7 @@ let cardUrlPath = ""
 }
 
 const callRenderScore = () => {
+    let renderScore = document.getElementById('renderScore')
     if (renderScore instanceof HTMLElement) {
         renderScore.textContent = currentTotalCount.toString()
     }
@@ -100,30 +92,43 @@ const calculateCurrentCardValueAndTotalCount = () => {
     checkIfMatchIsFinished();
 }
 
+// generate random number once 'give me card' button is clicked
+const giveMeCardButton = document.getElementById('giveMeCardButton');
+
 if (giveMeCardButton instanceof HTMLButtonElement) {
+    
     giveMeCardButton.addEventListener('click', () => {
         calculateCurrentCardValueAndTotalCount()
     })
 };
 
 // reset match
-let resetMatchButton = document.getElementById('resetMatchButton')
 
 const disableFinishMatchButton = () => {
+    const finishMatchButton = pullFinishMatchButtonVariable();
     if (finishMatchButton instanceof HTMLButtonElement) {
         finishMatchButton.disabled = false
     }
 }
 
 const disableGiveMeCardButton = (): void => {
+    
     if (giveMeCardButton instanceof HTMLButtonElement) {
         giveMeCardButton.disabled = false
     }
 }
 
 const resetFinishMatchMessage = () => {
+    const finishMatchMessage = pullFinishMatchMessageVariable();
     if (finishMatchMessage instanceof HTMLElement) {
         finishMatchMessage.textContent = ""
+    }
+}
+
+const renderCardPath = () => {
+    const renderCard = pullRenderCardVariable();
+    if (renderCard instanceof HTMLImageElement) { 
+        renderCard.src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg`      
     }
 }
 
@@ -134,21 +139,38 @@ const resetAllValues = () => {
     disableFinishMatchButton();
     disableGiveMeCardButton();
     resetFinishMatchMessage();
-    if (renderCard instanceof HTMLImageElement) { 
-        renderCard.src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg`      
-    }
+    renderCardPath();
+    
 }
+
+const pullMatchButtonVariable = () => {
+    let resetMatchButton = document.getElementById('resetMatchButton')
+    return resetMatchButton
+}
+
+// let resetMatchButton = document.getElementById('resetMatchButton')
+const resetMatchButton = pullMatchButtonVariable();
 if (resetMatchButton instanceof HTMLButtonElement) {
     resetMatchButton.addEventListener('click', () => {
         resetAllValues()
     })
 }
+
 // stop match
 
-let finishMatchButton = document.getElementById('finishMatchButton')
-let finishMatchMessage = document.getElementById('finishMatchMessage')
+const pullFinishMatchButtonVariable = () => {
+    let finishMatchButton = document.getElementById('finishMatchButton')
+    return finishMatchButton
+}
+
+const pullFinishMatchMessageVariable = () => {
+    let finishMatchMessage = document.getElementById('finishMatchMessage')
+    return finishMatchMessage
+}
 
 const createFinishMatchMessage = () => {
+    // const finishMatchButton = pullFinishMatchButtonVariable();
+    const finishMatchMessage = pullFinishMatchMessageVariable();
     if (finishMatchMessage instanceof HTMLElement) {
         if (currentTotalCount <= 5) {
             finishMatchMessage.textContent = "Te podías haber arriesgado un poco más"
@@ -162,6 +184,7 @@ const createFinishMatchMessage = () => {
     }
 }
 
+const finishMatchButton = pullFinishMatchButtonVariable();
 if (finishMatchButton instanceof HTMLButtonElement) {
     finishMatchButton.addEventListener('click', () => {
         createFinishMatchMessage()
@@ -171,8 +194,16 @@ if (finishMatchButton instanceof HTMLButtonElement) {
 
 // render card according to current card value
 
-let renderCard = document.getElementById('renderCard')
+const pullRenderCardVariable = () => {
+    let renderCard = document.getElementById('renderCard')
+    if (renderCard instanceof HTMLImageElement) {
+        renderCard.src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg`
+    }
+    return renderCard
+}
+
 const renderCardUrlPath = () => {   
+    const renderCard = pullRenderCardVariable();
     let cardUrlPath = assignCardUrlPath();
     if (renderCard instanceof HTMLImageElement) { 
         renderCard.src = `https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/${cardUrlPath}`  
@@ -182,6 +213,7 @@ const renderCardUrlPath = () => {
 // block the button when the match is finished + end the match based on the current count
 
 const checkIfMatchIsFinished = () => {
+    
     if (currentTotalCount > 7.5) {
         if (finishMatchButton instanceof HTMLButtonElement) {
             finishMatchButton.disabled = true
