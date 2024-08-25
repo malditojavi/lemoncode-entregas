@@ -21,11 +21,22 @@ const adaptRandomNumberForCard = (generateRandomNumber: number): number => {
 
 // count the current card value and add it to the current count
 
+const intializeCurrentCardValueAsZero = () => {
+    let currentCardValue = 0;
+    return currentCardValue    
+}
+
+const intializeCurrentTotalCountAsZero = () => {
+    let currentTotalCount = 0;
+    return currentTotalCount    
+}
+
 let currentCardValue = 0;
 let currentTotalCount = 0;
 
-const assignCardUrlPath = () => {   
-let cardUrlPath = ""
+const assignCardUrlPath = () => { 
+    // let currentCardValue = intializeCurrentCardValueAsZero();
+    let cardUrlPath = ""
     switch (currentCardValue) {
         
         case 1:
@@ -65,6 +76,7 @@ let cardUrlPath = ""
 }
 
 const callRenderScore = () => {
+    let currentTotalCount = intializeCurrentTotalCountAsZero();
     let renderScore = document.getElementById('renderScore')
     if (renderScore instanceof HTMLElement) {
         renderScore.textContent = currentTotalCount.toString()
@@ -78,6 +90,7 @@ const calculateValueOfSpecialCards = () => {
 }
 
 const calculateCurrentCardValueAndTotalCount = () => {
+   //  let currentTotalCount = intializeCurrentTotalCountAsZero();
     currentCardValue = adaptRandomNumberForCard(generateRandomNumber())
     
     assignCardUrlPath()
