@@ -78,20 +78,10 @@ const pacientes: Pacientes[] = [
 
 // a) Queremos extraer la lista de paciente que están asignados a la especialidad de Pediatría
 
-const obtenPacientesAsignadosAPediatria = (
-    pacientes: Pacientes[]
-  ): Pacientes[] => {
-    // Tu implementación aquí :)
-    let result = []
-    for (let item = 0; item < pacientes.length; item++) {
-        if (pacientes[item].especialidad === "Pediatra"){
-            result.push(pacientes[item])
-        }
-    } 
-    return result
-  };
-
-  console.log("obtenPacientesAsignadosAPediatria ", obtenPacientesAsignadosAPediatria(pacientes));
+const obtenPacientesAsignadosAPediatria = (pacientes: Pacientes[]): Pacientes[] => {
+  pacientes.filter(paciente => paciente.especialidad === "Pediatra")
+};
+console.log("obtenPacientesAsignadosAPediatria ", obtenPacientesAsignadosAPediatria(pacientes));
 
   // b) Queremos extraer la lista de pacientes asignados a Pediatría y que tengan una edad menor de 10 años.
 
@@ -172,24 +162,10 @@ interface NumeroPacientesPorEspecialidad {
   cardiologia: number;
 }
 
-const cuentaPacientesPorEspecialidad = (pacientes: Pacientes[]): NumeroPacientesPorEspecialidad => {
-  let result6 = {
-    medicoDeFamilia: 0,
-    pediatria: 0,
-    cardiologia: 0
-  }
-  for (let item = 0 ; item < pacientes.length; item++){
-    if (pacientes[item].especialidad === "Medico de familia"){
-        result6.medicoDeFamilia++
-    }
-    if (pacientes[item].especialidad === "Pediatra"){
-        result6.pediatria++
-    }
-    if (pacientes[item].especialidad === "Cardiólogo"){
-        result6.cardiologia++
-    }
-  }
-  return result6
+const cuentaPacientesPorEspecialidad = (
+  pacientes: Pacientes[]
+): NumeroPacientesPorEspecialidad => {
+  // Tu implementación aquí :)
 };
 
-console.log(cuentaPacientesPorEspecialidad(pacientes))
+console.log()
