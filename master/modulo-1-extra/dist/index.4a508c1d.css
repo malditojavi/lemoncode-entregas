@@ -38,6 +38,8 @@ nav {
 .menu-container {
   flex-direction: column;
   display: flex;
+  position: sticky;
+  top: 0;
 }
 
 .menu-title {

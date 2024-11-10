@@ -38,6 +38,8 @@ nav {
 .menu-container{
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
 }
 .menu-title {
     background-color: lightgray;
