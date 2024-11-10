@@ -1,99 +1,189 @@
-body {
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
+@media screen and (width >= 768px) {
+  body {
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  header {
+    background-color: #023047;
+  }
+
+  .toolbar {
+    background-color: #fff;
+    justify-content: space-between;
+    padding: 15px;
+    display: flex;
+  }
+
+  .page-title {
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #023047;
+    padding: 15px;
+  }
+
+  .page-container {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+  }
+
+  nav {
+    background-color: #219ebc;
+    flex: 1;
+  }
+
+  .menu-container {
+    flex-direction: column;
+    display: flex;
+    position: sticky;
+    top: 0;
+  }
+
+  .menu-title {
+    text-transform: uppercase;
+    background-color: #d3d3d3;
+    justify-content: center;
+    display: flex;
+  }
+
+  .menu-container ul {
+    background-color: #8ecae6;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    list-style-type: none;
+  }
+
+  .menu-container ul li {
+    border: 1px solid #000;
+    padding: 10px;
+  }
+
+  main {
+    background-color: #ffa07a;
+    flex: 5;
+    padding: 25px;
+  }
+
+  .list {
+    flex-flow: wrap;
+    justify-content: center;
+    place-items: center;
+    gap: 30px;
+    display: flex;
+  }
+
+  .card {
+    background-color: #fb8500;
+    border: 1px solid #000;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    width: 300px;
+    padding: 30px;
+    display: flex;
+  }
+
+  .card img {
+    border-radius: 50%;
+    max-width: 75%;
+  }
+
+  footer {
+    color: #fff;
+    background-color: #ffb703;
+    padding: 15px;
+    position: sticky;
+    bottom: 0;
+  }
 }
 
-header {
-  background-color: pink;
-}
+@media screen and (width <= 768px) {
+  body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
 
-.toolbar {
-  background-color: red;
-  justify-content: space-between;
-  padding: 15px;
-  display: flex;
-}
+  .toolbar, .menu-title {
+    display: none;
+  }
 
-.page-title {
-  color: #fff;
-  text-transform: uppercase;
-  background-color: #00f;
-  padding: 15px;
-}
+  header {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #023047;
+    padding: 10px;
+    display: flex;
+  }
 
-.page-container {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-}
+  .page-container {
+    flex-direction: column;
+    display: flex;
+  }
 
-nav {
-  background-color: #90ee90;
-  flex: 1;
-}
+  nav {
+    position: sticky;
+    top: 0;
+  }
 
-.menu-container {
-  flex-direction: column;
-  display: flex;
-  position: sticky;
-  top: 0;
-}
+  .list {
+    padding: 10px;
+  }
 
-.menu-title {
-  text-transform: uppercase;
-  background-color: #d3d3d3;
-  justify-content: center;
-  display: flex;
-}
+  .menu-container ul {
+    align-items: inherit;
+    background-color: #219ebc;
+    justify-content: space-around;
+    gap: 10px;
+    margin-block-start: 0;
+    padding: 10px;
+    padding-inline-start: 0;
+    list-style-type: none;
+    display: flex;
+  }
 
-.menu-container ul {
-  background-color: #ff0;
-  margin-block-start: 0;
-  padding-inline-start: 0;
-  list-style-type: none;
-}
+  .menu-container ul li {
+    background-color: #8ecae6;
+    padding: 10px;
+  }
 
-.menu-container ul li {
-  border: 1px solid #000;
-  padding: 10px;
-}
+  main {
+    display: flex;
+  }
 
-main {
-  background-color: #ffa07a;
-  flex: 5;
-  padding: 25px;
-}
+  .list {
+    flex-wrap: wrap;
+    place-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+  }
 
-.list {
-  flex-flow: wrap;
-  justify-content: center;
-  place-items: center;
-  gap: 30px;
-  display: flex;
-}
+  .list .card {
+    color: #fff;
+    background-color: #fb8500;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+  }
 
-.card {
-  background-color: pink;
-  border: 1px solid #000;
-  flex-direction: column;
-  place-content: center;
-  align-items: center;
-  width: 300px;
-  padding: 30px;
-  display: flex;
-}
+  .list .card .member-name {
+    padding-left: 10px;
+  }
 
-.card img {
-  border-radius: 50%;
-  max-width: 75%;
-}
+  .list .card img {
+    border-radius: 50%;
+  }
 
-footer {
-  color: #fff;
-  background-color: #cd5c5c;
-  padding: 15px;
+  footer {
+    background-color: #ffb703;
+    padding: 10px;
+  }
 }
 /*# sourceMappingURL=index.4a508c1d.css.map */

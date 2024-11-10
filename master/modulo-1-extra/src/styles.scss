@@ -1,101 +1,185 @@
 @use 'base' as *;
 
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+@media screen and (min-width: 768px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    header {
+        background-color: $header-color;
+    }
+    .toolbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: white;
+    }
+    .page-title {
+        background-color: $header-color;
+        color: white;
+        padding: 15px;
+        text-transform: uppercase;
+    }
+    
+    .page-container {
+        display: flex;
+        flex: 1;
+        min-height: 0;
+    }
+    
+    nav {
+        background-color: $nav-color;
+        flex: 1;
+    }
+    
+    .menu-container{
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+    }
+    .menu-title {
+        background-color: lightgray;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+    }
+    .menu-container ul {
+        background-color: $nav-item-color;
+        list-style-type: none;
+        padding-inline-start: 0px;
+        margin-block-start: 0px;
+    }
+    
+    .menu-container ul li {
+        padding: 10px;
+        border: black solid 1px;
+    }
+    
+    main {
+        background-color: lightsalmon;
+        flex: 5;
+        padding: 25px;
+    }
+    
+    .list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .card {
+        display: flex;
+        flex-direction: column;
+        background-color: $card-color;
+        border: black solid 1px;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        padding: 30px;
+        width: 300px;
+    }
+    
+    .card img {
+        border-radius: 50%;
+        max-width: 75%;
+    }
+    
+    footer {
+        padding: 15px;
+        color: white;
+        background-color: $footer-color;
+        position: sticky;
+        bottom: 0;
+    }    
+
 }
 
-header {
-    background-color: pink;
-}
-.toolbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    background-color: red;
-}
-.page-title {
-    background-color: blue;
-    color: white;
-    padding: 15px;
-    text-transform: uppercase;
-}
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+    .toolbar, .menu-title {
+        display: none;
+    }
+    header {
+        text-transform: uppercase;
+        background-color: $header-color;
+        display: flex;
+        padding: 10px;
+        color: white;
+    }
+    .page-container{
+        display: flex;
+        flex-direction: column;
+    }
+    nav {
+        position: sticky;
+        top: 0;
+    }
+    .list{
+        padding: 10px;
+    }
 
-.page-container {
-    display: flex;
-    flex: 1;
-    min-height: 0;
-}
+    .menu-container ul {
+        padding: 10px;
+        display: flex;
+        background-color: $nav-color;
+        list-style-type: none;
+        padding-inline-start: 0px;
+        margin-block-start: 0px;    
+        align-items: inherit;
+        justify-content: space-around;
+        gap: 10px;
+    
+        & li {
+            background-color: $nav-item-color;
+            padding: 10px;
+        }
+    }
+    
+    main {
+        display: flex;
+    }
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 10px;
 
-nav {
-    background-color: lightgreen;
-    flex: 1;
-}
+        & .card {
+            color: white;
+            background-color: $card-color;
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
 
-.menu-container{
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 0;
+            & .member-name {
+                padding-left: 10px;
+            }
+        }
+        & .card img {
+            border-radius: 50%;
+        }
+        
+    }
+    footer {
+        background-color: $footer-color;
+        padding: 10px;
+    }
 }
-.menu-title {
-    background-color: lightgray;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-}
-.menu-container ul {
-    background-color: yellow;
-    list-style-type: none;
-    padding-inline-start: 0px;
-    margin-block-start: 0px;
-}
-
-.menu-container ul li {
-    padding: 10px;
-    border: black solid 1px;
-}
-
-main {
-    background-color: lightsalmon;
-    flex: 5;
-    padding: 25px;
-}
-
-.list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    background-color: pink;
-    border: black solid 1px;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding: 30px;
-    width: 300px;
-}
-
-.card img {
-    border-radius: 50%;
-    max-width: 75%;
-}
-
-footer {
-    padding: 15px;
-    color: white;
-    background-color: indianred;
-}
-
-
