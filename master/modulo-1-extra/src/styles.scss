@@ -1,0 +1,94 @@
+@use 'base' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: pink;
+}
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: red;
+}
+.page-title {
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+.page-container {
+    display: flex;
+}
+
+nav {
+    background-color: lightgreen;
+    flex: 1;
+}
+
+.menu-container{
+    display: flex;
+    flex-direction: column;
+}
+.menu-title {
+    background-color: lightgray;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+.menu-container ul {
+    background-color: yellow;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+}
+
+.menu-container ul li {
+    padding: 10px;
+    border: black solid 1px;
+}
+
+main {
+    background-color: lightsalmon;
+    flex: 5;
+    padding: 25px;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    border: black solid 1px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 300px;
+}
+
+.card img {
+    border-radius: 50%;
+    max-width: 75%;
+}
+
+footer {
+    padding: 15px;
+    color: white;
+    background-color: indianred;
+}
+
+
