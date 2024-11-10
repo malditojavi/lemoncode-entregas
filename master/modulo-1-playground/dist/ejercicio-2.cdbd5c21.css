@@ -1,0 +1,36 @@
+.flex-container {
+  flex-direction: column;
+  gap: 5px;
+  width: 10%;
+  display: flex;
+}
+
+.flex-item {
+  border: 1px solid #000;
+  padding: 25px;
+}
+
+.base {
+  background-color: #cd5c5c;
+}
+
+.important {
+  background-color: #8b0000;
+}
+
+.warning {
+  background-color: pink;
+}
+
+.box-shadow {
+  box-shadow: -10px 10px 10px #000c;
+}
+
+.primary-text {
+  font-family: Times New Roman;
+}
+
+.secondary-text {
+  font-family: Arial;
+}
+/*# sourceMappingURL=ejercicio-2.cdbd5c21.css.map */

@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
+}
+
+nav {
+  color: #fff;
+  background-color: #1f6575;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 10px;
+  display: flex;
+}
+
+.menu-item {
+  flex-wrap: wrap;
+  align-items: center;
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+}
+
+.menu-item:hover {
+  color: #fff;
+  background-color: #2f4858;
+}
+
+@media only screen and (width <= 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .menu-item {
+    place-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+  }
+
+  .menu-item:hover {
+    color: #fff;
+    background-color: #2f4858;
+  }
+}
+/*# sourceMappingURL=ejercicio-3.c113355e.css.map */
