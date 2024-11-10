@@ -1,6 +1,9 @@
 body {
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 header {
@@ -22,6 +25,8 @@ header {
 }
 
 .page-container {
+  flex: 1;
+  min-height: 0;
   display: flex;
 }
 

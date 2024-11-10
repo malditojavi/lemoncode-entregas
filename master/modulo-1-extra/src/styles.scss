@@ -3,6 +3,9 @@
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -23,6 +26,8 @@ header {
 
 .page-container {
     display: flex;
+    flex: 1;
+    min-height: 0;
 }
 
 nav {
