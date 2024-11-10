@@ -1,0 +1,138 @@
+@use 'ejercicio-1-base' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container-1 {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    align-content:center;
+    margin: 5px;
+}
+.container-2, .container-3 {
+    @extend .container-1
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-content:center;
+    align-items: center;
+    flex-basis: 100px;
+}
+
+.container-1 {
+    .base-color {
+        background-color: $primary-color;
+        flex: 0 1 10%; 
+    }
+    .darken-4{
+        background-color: darken($primary-color, 40%)
+    }
+    .darken-3{
+        background-color: darken($primary-color, 30%)
+    }
+    .darken-2{
+        background-color: darken($primary-color, 20%)
+    }
+    .darken-1{
+        background-color: darken($primary-color, 10%)
+    }
+    .lighten-4{
+        background-color: lighten($primary-color, 40%)
+    }
+    .lighten-3{
+        background-color: lighten($primary-color, 30%)
+    }
+    .lighten-2{
+        background-color: lighten($primary-color, 20%)
+    }
+    .lighten-1{
+        background-color: lighten($primary-color, 10%)
+    }
+    .color-box-text {
+        color: $inverted-color;
+    }
+}
+
+.container-2 {
+    .base-color {
+        background-color: $second-color;
+        flex: 0 1 10%; 
+        
+    }
+    .darken-4{
+        background-color: darken($second-color, 40%)
+    }
+    .darken-3{
+        background-color: darken($second-color, 30%)
+    }
+    .darken-2{
+        background-color: darken($second-color, 20%)
+    }
+    .darken-1{
+        background-color: darken($second-color, 10%)
+    }
+    .lighten-4{
+        background-color: lighten($second-color, 40%)
+    }
+    .lighten-3{
+        background-color: lighten($second-color, 30%)
+    }
+    .lighten-2{
+        background-color: lighten($second-color, 20%)
+    }
+    .lighten-1{
+        background-color: lighten($second-color, 10%)
+    }
+    .color-box-text {
+        color: $second-inverted-color;
+    }
+}
+
+.container-3 {
+    .base-color {
+        background-color: $third-color;
+        flex: 0 1 10%; 
+    }
+    .darken-4{
+        background-color: darken($third-color, 40%)
+    }
+    .darken-3{
+        background-color: darken($third-color, 30%)
+    }
+    .darken-2{
+        background-color: darken($third-color, 20%)
+    }
+    .darken-1{
+        background-color: darken($third-color, 10%)
+    }
+    .lighten-4{
+        background-color: lighten($third-color, 40%)
+    }
+    .lighten-3{
+        background-color: lighten($third-color, 30%)
+    }
+    .lighten-2{
+        background-color: lighten($third-color, 20%)
+    }
+    .lighten-1{
+        background-color: lighten($third-color, 10%)
+    }
+    .color-box-text {
+        color: $third-inverted-color;
+    }
+}
+
+
+

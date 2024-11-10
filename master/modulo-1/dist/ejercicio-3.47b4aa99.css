@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
+}
+
+nav {
+  background-color: #fabada;
+  place-content: stretch space-around;
+  align-items: center;
+  height: 50px;
+  display: flex;
+}
+
+.menu-item:hover {
+  color: #fff;
+  background-color: #000;
+}
+/*# sourceMappingURL=ejercicio-3.47b4aa99.css.map */

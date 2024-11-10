@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    }
+    
+.div1 { 
+    background-color: pink;
+    grid-column: 1 / 2;
+    grid-row: 1 / 6;
+}
+.div2 { 
+    background-color: indianred;
+    grid-column: 1 / 2;
+    grid-row: 6 / 12;
+}
+.div3 { 
+    background-color: orchid;
+    grid-column: 1 / 2;
+    grid-row: 12 / 14;
+    display: flex;
+}
+.card-title{
+    display: block;
+    font-size: 2rem;
+}
+.card-text {
+    display:block;
+}
+.card-cta {
+    width: 100%;
+    background-color: rgb(55, 117, 55);
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    color: white;
+}

@@ -1,0 +1,33 @@
+$primary-color: indianred;
+$secondary-color: darkred;
+$third-color: pink;
+$box-shadow: -10 10px 10px rgb(0 0 0 / 0.8);
+$border-radius: 0;
+$principal-font: "Times New Roman";
+$secondary-font: "Arial";
+
+@mixin themeIt($theme-name, $primary-color, $secondary-color, $third-color, $box-shadow, $border-radius, $principal-font, $secondary-font) {
+    .#{$theme-name} {
+        .base {
+            background-color: $primary-color;
+        }
+        .important {
+            background-color: $secondary-color;
+        }
+        .warning {
+            background-color: $third-color;
+        }
+        .box-shadow {
+            box-shadow: $box-shadow;
+        }
+        .flex-item {
+            border-radius: $border-radius;
+        }
+        .primary-text{
+            font-family: $principal-font;
+        }
+        .secondary-text{
+            font-family: $secondary-font;
+        }
+    }
+}

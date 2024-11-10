@@ -1,0 +1,33 @@
+@use 'ejercicio-2-base' as *;
+@include themeIt(theme-1, green, pink, yellow, 10 10px 10px rgb(0 0 0 / 0.8), 50, Impact, Comic Sans MS);
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    gap: 5px;
+}
+
+.flex-item {
+    border: 1px solid black;
+    padding: 25px;
+}
+
+.base {
+    background-color: $primary-color;
+}
+.important {
+    background-color: $secondary-color;
+}
+.warning {
+    background-color: $third-color;
+}
+.box-shadow {
+    box-shadow: -10 10px 10px rgb(0 0 0 / 0.8);
+}
+.primary-text {
+    font-family: $principal-font;
+}
+.secondary-text {
+    font-family: $secondary-font;
+}
