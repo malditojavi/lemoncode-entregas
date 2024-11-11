@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+container-base, .container-3, .container-2, .container-1 {
+  flex-direction: row;
+  place-content: center;
+  align-items: stretch;
+  gap: 5px;
+  margin: 5px;
+  display: flex;
+}
+
+.container-1 .base-color {
+  background-color: orange;
+  flex: 0 10%;
+}
+
+.container-1 .darken-1 {
+  background-color: #cc8400;
+}
+
+.container-1 .lighten-1 {
+  background-color: #ffb733;
+}
+
+.container-1 .darken-2 {
+  background-color: #996300;
+}
+
+.container-1 .lighten-2 {
+  background-color: #ffc966;
+}
+
+.container-1 .darken-3 {
+  background-color: #664200;
+}
+
+.container-1 .lighten-3 {
+  background-color: #ffdb99;
+}
+
+.container-1 .darken-4 {
+  background-color: #332100;
+}
+
+.container-1 .lighten-4 {
+  background-color: #ffedcc;
+}
+
+.container-1 .color-box-text {
+  color: #005aff;
+}
+
+.container-2 .base-color {
+  background-color: #cd5c5c;
+  flex: 0 10%;
+}
+
+.container-2 .darken-1 {
+  background-color: #bc3a3a;
+}
+
+.container-2 .lighten-1 {
+  background-color: #d98383;
+}
+
+.container-2 .darken-2 {
+  background-color: #952e2e;
+}
+
+.container-2 .lighten-2 {
+  background-color: #e5aaaa;
+}
+
+.container-2 .darken-3 {
+  background-color: #6e2222;
+}
+
+.container-2 .lighten-3 {
+  background-color: #f1d1d1;
+}
+
+.container-2 .darken-4 {
+  background-color: #471616;
+}
+
+.container-2 .lighten-4 {
+  background-color: #fdf8f8;
+}
+
+.container-2 .color-box-text {
+  color: #32a3a3;
+}
+
+.container-3 .base-color {
+  background-color: #00f;
+  flex: 0 10%;
+}
+
+.container-3 .darken-1 {
+  background-color: #00c;
+}
+
+.container-3 .lighten-1 {
+  background-color: #33f;
+}
+
+.container-3 .darken-2 {
+  background-color: #009;
+}
+
+.container-3 .lighten-2 {
+  background-color: #66f;
+}
+
+.container-3 .darken-3 {
+  background-color: #006;
+}
+
+.container-3 .lighten-3 {
+  background-color: #99f;
+}
+
+.container-3 .darken-4 {
+  background-color: #003;
+}
+
+.container-3 .lighten-4 {
+  background-color: #ccf;
+}
+
+.container-3 .color-box-text {
+  color: #ff0;
+}
+
+.box {
+  border-radius: 3px;
+  flex-basis: 100px;
+  place-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  display: flex;
+}
+/*# sourceMappingURL=ejercicio-1.e7b47b9d.css.map */

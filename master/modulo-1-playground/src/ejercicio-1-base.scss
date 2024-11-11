@@ -6,3 +6,24 @@ $second-inverted-color: invert($second-color);
 
 $third-color: blue;
 $third-inverted-color: invert($third-color);
+
+@mixin color-variations($base-color, $text-color) {
+    .base-color {
+      background-color: $base-color;
+      flex: 0 1 10%;
+    }
+  
+    @for $i from 1 through 4 {
+      .darken-#{$i} {
+        background-color: darken($base-color, $i * 10%);
+      }
+      
+      .lighten-#{$i} {
+        background-color: lighten($base-color, $i * 10%);
+      }
+    }
+  
+    .color-box-text {
+      color: $text-color;
+    }
+}
